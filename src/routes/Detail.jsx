@@ -1,7 +1,8 @@
 // 이 파일은 글 상세 화면을 담당하는 컴포넌트 파일
 
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import  styles from "./Detail.module.css"
 
 function Detail() {
     // react-router가 갖고 있는 "id"라는 이름을 붙인 값을 꺼내와야 함
@@ -36,25 +37,25 @@ function Detail() {
     }, []);
 
     if (loading) {
-        return <div>본문을 불러오는 중입니다...</div>;
+        return <div className={styles.loading}>본문을 불러오는 중입니다...</div>;
     }
 
     if (!post) {
-        return <div>존재하지 않는 게시글입니다.</div>;
+        return <div className={styles.loading}>존재하지 않는 게시글입니다.</div>;
     }
 
     return (
-        <div>
-            <div>&larr; 목록으로 돌아가기</div>
+        <div className={styles.container}>
+            <Link to={"/"} className={styles.backLink}>&larr; 목록으로 돌아가기</Link>
 
-            <article>
-                <h1>{post.title}</h1>
-                <div>
+            <article className={styles.article}>
+                <h1 className={styles.title}>{post.title}</h1>
+                <div className={styles.meta}>
                     <span>게시글 번호 : {post.id}</span>
                     <span style={{ margin: "0 12px" }}>|</span>
                     <spen>작성자 : {post.userId}</spen>
                 </div>
-                <div>{post.body}</div>
+                <div className={styles.body}>{post.body}</div>
             </article>
         </div>
     );
