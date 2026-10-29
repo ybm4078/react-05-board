@@ -62,3 +62,12 @@
     text-align: center;
     color: #666;
 }
+
+.Link {
+    color: #333;
+}
+
+.Link:hover {
+    color: #191969;
+    border-bottom: 1px solid #191969;
+}
