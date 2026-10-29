@@ -18,7 +18,7 @@ function App() {
                     => 첫번째 자기가 고정 값이 "/about" 아니라
                         "/동적으로 변하는 값"이 옴
                 */}
-                <Route patho={"/:id"} element={<Detail />} />
+                <Route path={"/:id"} element={<Detail />} />
                 {/*
                     내가 원하는건 경로의 첫번쨰 자리에 어떤 값이든 들어오면,
                     Detail이라는 컴포넌트를 화면에 띄어줄거야
